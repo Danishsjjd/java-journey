@@ -1,12 +1,13 @@
 public class Main {
-    public static void main(String[] args){
-        var textBox1 = new TextBox();
-        var textBox2 = new TextBox();
+    public static void main(String[] args) {
+        var console = new Console();
+        var stopWatch = new StopWatch();
 
-        textBox1.setText("Box 1");
-        textBox2.setText("Box 2");
+        console.registerCommand("start", stopWatch::start);
+        console.registerCommand("stop", stopWatch::stop);
+        console.registerCommand("reset", stopWatch::reset);
+        console.registerCommand("seconds", () -> System.out.println(stopWatch.getTimeInSeconds()));
 
-        System.out.println(textBox1.text);
-        System.out.println(textBox2.text);
+        console.start();
     }
 }
